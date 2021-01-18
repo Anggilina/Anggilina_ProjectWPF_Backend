@@ -1,6 +1,6 @@
 
 module.exports = (mongoose) => {
-  const objectId = mongoose.Schema.Types.ObjectId;
+  const { Schema } = require("mongoose");
   const Ukm = mongoose.model(
       "ukm",
       mongoose.Schema(
@@ -10,9 +10,9 @@ module.exports = (mongoose) => {
           pembina: String,
           foto: String,
           kategori: {
-            type: objectId,
-            ref: 'kategoris',
-          },
+            type: Schema.Types.ObjectId,
+            ref: 'kategori',
+        },
         },
         { timestamps: true }
       )

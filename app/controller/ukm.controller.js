@@ -29,7 +29,7 @@ exports.findAll = (req, res) => {
     ? { nama: { $regex: new RegExp(nama), $options: "i" } }
     : {};
 
-  Ukm.find(condition)
+  Ukm.find(condition).populate('kategori')
     .then((data) => {
       res.send(data);
     })

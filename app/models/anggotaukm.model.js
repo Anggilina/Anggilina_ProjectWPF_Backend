@@ -1,18 +1,18 @@
 
 module.exports = (mongoose) => {
-  const objectId = mongoose.Schema.Types.ObjectId;
+  const { Schema } = require("mongoose");
   const Anggotaukm = mongoose.model(
       "anggotaukm",
       mongoose.Schema(
         {
-          id_ukm: {
-            type: objectId,
-            ref: 'ukms',
-          },
+          id_ukm:{
+            type: Schema.Types.ObjectId,
+            ref: 'ukm',
+        },
           id_anggota: {
-            type: objectId,
-            ref: 'anggotas',
-          },
+            type: Schema.Types.ObjectId,
+            ref: 'anggota',
+        },
           jabatan: String,
           tgl_bergabung: String,
         },
