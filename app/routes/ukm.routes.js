@@ -51,7 +51,7 @@ module.exports = (app) => {
   
     router.get("/:id", ukms.findOne);
   
-    router.put("/:id", ukms.update);
+    router.put("/:id", upload.any(), ukms.update);
   
     router.delete("/:id", ukms.delete);
   

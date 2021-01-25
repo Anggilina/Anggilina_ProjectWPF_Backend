@@ -55,8 +55,15 @@ exports.findOne = (req, res) => {
 
 exports.update = (req, res) => {
   const id = req.params.id;
+  const ukm2 = {
+    nama: req.body.nama,
+    jumlah_anggota: req.body.jumlah_anggota,
+    pembina: req.body.pembina,
+    kategori: req.body.kategori,
+    foto: req.files[0].filename,
+  };
 
-  Ukm.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  Ukm.findByIdAndUpdate(id, ukm2, { useFindAndModify: false })
     .then((data) => {
       if (!data) {
         res.status(404).send({
